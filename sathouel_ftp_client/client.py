@@ -12,6 +12,10 @@ class Client:
 
         self._client = self.init_sftp_client() if self.sftp else self.init_ftp_client()
 
+    @property
+    def ftp_client(self):
+        return self._client
+
     def init_ftp_client(self):
         if not self.username or not self.password or not self.host:
             raise ValueError('Please set host, user and password to init Genial Client')
